@@ -1,11 +1,11 @@
-# ![LOGO](logo.png) Amazon EC2 Container Registry MSP Connector
+# ![LOGO](logo.png) Amazon EC2 Container Registry **flow**ground Connector
 
 ## Description
 
-A generated MSP connector for the Amazon EC2 Container Registry API (version 2015-09-21).
+A generated **flow**ground connector for the Amazon EC2 Container Registry API (version 2015-09-21).
 
 Generated from: https://api.apis.guru/v2/specs/amazonaws.com/ecr/2015-09-21/swagger.json<br/>
-Generated at: 2019-05-07T11:15:50+03:00
+Generated at: 2019-05-07T17:35:27+03:00
 
 ## API Description
 
@@ -344,7 +344,7 @@ Supported authorization schemes:
 
 ## License
 
-flowground :- Telekom iPaaS / amazonaws-com-ecr-connector<br/>
+**flow**ground :- Telekom iPaaS / amazonaws-com-ecr-connector<br/>
 Copyright © 2019, [Deutsche Telekom AG](https://www.telekom.de)<br/>
 contact: flowground@telekom.de
 
