@@ -1,0 +1,84 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "layerPartBlob": {
+                    "description": "The base64-encoded layer part payload.",
+                    "type": "string"
+                },
+                "partFirstByte": {
+                    "description": "The integer value of the first byte of the layer part.",
+                    "minimum": 0,
+                    "type": "integer"
+                },
+                "partLastByte": {
+                    "description": "The integer value of the last byte of the layer part.",
+                    "minimum": 0,
+                    "type": "integer"
+                },
+                "registryId": {
+                    "description": "The AWS account ID associated with the registry to which you are uploading layer parts. If you do not specify a registry, the default registry is assumed.",
+                    "pattern": "[0-9]{12}",
+                    "type": "string"
+                },
+                "repositoryName": {
+                    "description": "The name of the repository to which you are uploading layer parts.",
+                    "maxLength": 256,
+                    "minLength": 2,
+                    "pattern": "(?:[a-z0-9]+(?:[._-][a-z0-9]+)*/)*[a-z0-9]+(?:[._-][a-z0-9]+)*",
+                    "type": "string"
+                },
+                "uploadId": {
+                    "description": "The upload ID from a previous <a>InitiateLayerUpload</a> operation to associate with the layer part upload.",
+                    "pattern": "[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "repositoryName",
+                "uploadId",
+                "partFirstByte",
+                "partLastByte",
+                "layerPartBlob"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

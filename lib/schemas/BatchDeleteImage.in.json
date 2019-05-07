@@ -1,0 +1,91 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Deletes specified images within a specified repository. Images are specified with either the <code>imageTag</code> or <code>imageDigest</code>.",
+            "example": {
+                "imageIds": [
+                    {
+                        "imageTag": "precise"
+                    }
+                ],
+                "repositoryName": "ubuntu"
+            },
+            "properties": {
+                "imageIds": {
+                    "description": "A list of image ID references that correspond to images to delete. The format of the <code>imageIds</code> reference is <code>imageTag=tag</code> or <code>imageDigest=digest</code>.",
+                    "items": {
+                        "description": "An object with identifying information for an Amazon ECR image.",
+                        "properties": {
+                            "imageDigest": {
+                                "description": "The <code>sha256</code> digest of the image manifest.",
+                                "type": "string"
+                            },
+                            "imageTag": {
+                                "description": "The tag used for the image.",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "maxItems": 100,
+                    "minItems": 1,
+                    "type": "array"
+                },
+                "registryId": {
+                    "description": "The AWS account ID associated with the registry that contains the image to delete. If you do not specify a registry, the default registry is assumed.",
+                    "pattern": "[0-9]{12}",
+                    "type": "string"
+                },
+                "repositoryName": {
+                    "description": "The repository that contains the image to delete.",
+                    "maxLength": 256,
+                    "minLength": 2,
+                    "pattern": "(?:[a-z0-9]+(?:[._-][a-z0-9]+)*/)*[a-z0-9]+(?:[._-][a-z0-9]+)*",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "repositoryName",
+                "imageIds"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,68 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "lifecyclePolicyText": {
+                    "description": "The JSON repository policy text to apply to the repository.",
+                    "maxLength": 30720,
+                    "minLength": 100,
+                    "type": "string"
+                },
+                "registryId": {
+                    "description": "The AWS account ID associated with the registry that contains the repository. If you do&#x2028; not specify a registry, the default registry is assumed.",
+                    "pattern": "[0-9]{12}",
+                    "type": "string"
+                },
+                "repositoryName": {
+                    "description": "The name of the repository to receive the policy.",
+                    "maxLength": 256,
+                    "minLength": 2,
+                    "pattern": "(?:[a-z0-9]+(?:[._-][a-z0-9]+)*/)*[a-z0-9]+(?:[._-][a-z0-9]+)*",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "repositoryName",
+                "lifecyclePolicyText"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}
