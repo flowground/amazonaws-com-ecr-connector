@@ -20,7 +20,7 @@
                 "label": "Custom Server URL",
                 "viewClass": "TextFieldView"
             },
-            "hmac": {
+            "auth_hmac": {
                 "label": "Authorization (hmac)",
                 "viewClass": "TextFieldView",
                 "note": "Amazon Signature authorization v4"
@@ -38,8 +38,8 @@
     "actions": {
         "BatchCheckLayerAvailability": {
             "main": "./lib/actions/BatchCheckLayerAvailability.js",
-            "title": "<p>Check the availability of multiple image layers in a specified registry and repository.</p> <note> <p>This operation is used by the Amazon ECR proxy, and it is not intended for general use by customers for pulling and pushing images. In most cases, you should use the <code>docker</code> CLI to pull, tag, and push images.</p> </note>",
-            "description": "<p>Check the availability of multiple image layers in a specified registry and repository.</p> <note> <p>This operation is used by the Amazon ECR proxy, and it is not intended for general use by customers for pulling and pushing images. In most cases, you should use the <code>docker</code> CLI to pull, tag, and push images.</p> </note>",
+            "title": "BatchCheckLayerAvailability",
+            "description": "Check the availability of multiple image layers in a specified registry and\nrepository.\n\nThis operation is used by the Amazon ECR proxy, and it is not intended for\ngeneral use by customers for pulling and pushing images. In most cases, you\nshould use the docker CLI to pull, tag, and push images.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -55,8 +55,8 @@
         },
         "BatchDeleteImage": {
             "main": "./lib/actions/BatchDeleteImage.js",
-            "title": "<p>Deletes a list of specified images within a specified repository. Images are specified with either <code>imageTag</code> or <code>imageDigest</code>.</p> <p>You can remove a tag from an image by specifying the image's tag in your request. When you remove the last tag from an image, the image is deleted from your repository.</p> <p>You can completely delete an image (and all of its tags) by specifying the image's digest in your request.</p>",
-            "description": "<p>Deletes a list of specified images within a specified repository. Images are specified with either <code>imageTag</code> or <code>imageDigest</code>.</p> <p>You can remove a tag from an image by specifying the image's tag in your request. When you remove the last tag from an image, the image is deleted from your repository.</p> <p>You can completely delete an image (and all of its tags) by specifying the image's digest in your request.</p>",
+            "title": "BatchDeleteImage",
+            "description": "Deletes a list of specified images within a specified repository. Images are\nspecified with either imageTag or imageDigest.\n\nYou can remove a tag from an image by specifying the image's tag in your\nrequest. When you remove the last tag from an image, the image is deleted from\nyour repository.\n\nYou can completely delete an image (and all of its tags) by specifying the\nimage's digest in your request.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -72,7 +72,7 @@
         },
         "BatchGetImage": {
             "main": "./lib/actions/BatchGetImage.js",
-            "title": "Gets detailed information for specified images within a specified repository. Images are specified with either <code>imageTag</code> or <code>imageDigest</code>.",
+            "title": "BatchGetImage",
             "description": "Gets detailed information for specified images within a specified repository. Images are specified with either <code>imageTag</code> or <code>imageDigest</code>.",
             "fields": {
                 "verbose": {
@@ -89,8 +89,8 @@
         },
         "CompleteLayerUpload": {
             "main": "./lib/actions/CompleteLayerUpload.js",
-            "title": "<p>Informs Amazon ECR that the image layer upload has completed for a specified registry, repository name, and upload ID. You can optionally provide a <code>sha256</code> digest of the image layer for data validation purposes.</p> <note> <p>This operation is used by the Amazon ECR proxy, and it is not intended for general use by customers for pulling and pushing images. In most cases, you should use the <code>docker</code> CLI to pull, tag, and push images.</p> </note>",
-            "description": "<p>Informs Amazon ECR that the image layer upload has completed for a specified registry, repository name, and upload ID. You can optionally provide a <code>sha256</code> digest of the image layer for data validation purposes.</p> <note> <p>This operation is used by the Amazon ECR proxy, and it is not intended for general use by customers for pulling and pushing images. In most cases, you should use the <code>docker</code> CLI to pull, tag, and push images.</p> </note>",
+            "title": "CompleteLayerUpload",
+            "description": "Informs Amazon ECR that the image layer upload has completed for a specified\nregistry, repository name, and upload ID. You can optionally provide a sha256 \ndigest of the image layer for data validation purposes.\n\nThis operation is used by the Amazon ECR proxy, and it is not intended for\ngeneral use by customers for pulling and pushing images. In most cases, you\nshould use the docker CLI to pull, tag, and push images.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -106,7 +106,7 @@
         },
         "CreateRepository": {
             "main": "./lib/actions/CreateRepository.js",
-            "title": "Creates an image repository.",
+            "title": "CreateRepository",
             "description": "Creates an image repository.",
             "fields": {
                 "verbose": {
@@ -123,7 +123,7 @@
         },
         "DeleteLifecyclePolicy": {
             "main": "./lib/actions/DeleteLifecyclePolicy.js",
-            "title": "Deletes the specified lifecycle policy.",
+            "title": "DeleteLifecyclePolicy",
             "description": "Deletes the specified lifecycle policy.",
             "fields": {
                 "verbose": {
@@ -140,7 +140,7 @@
         },
         "DeleteRepository": {
             "main": "./lib/actions/DeleteRepository.js",
-            "title": "Deletes an existing image repository. If a repository contains images, you must use the <code>force</code> option to delete it.",
+            "title": "DeleteRepository",
             "description": "Deletes an existing image repository. If a repository contains images, you must use the <code>force</code> option to delete it.",
             "fields": {
                 "verbose": {
@@ -157,7 +157,7 @@
         },
         "DeleteRepositoryPolicy": {
             "main": "./lib/actions/DeleteRepositoryPolicy.js",
-            "title": "Deletes the repository policy from a specified repository.",
+            "title": "DeleteRepositoryPolicy",
             "description": "Deletes the repository policy from a specified repository.",
             "fields": {
                 "verbose": {
@@ -174,8 +174,8 @@
         },
         "DescribeImages": {
             "main": "./lib/actions/DescribeImages.js",
-            "title": "<p>Returns metadata about the images in a repository, including image size, image tags, and creation date.</p> <note> <p>Beginning with Docker version 1.9, the Docker client compresses image layers before pushing them to a V2 Docker registry. The output of the <code>docker images</code> command shows the uncompressed image size, so it may return a larger image size than the image sizes returned by <a>DescribeImages</a>.</p> </note>",
-            "description": "<p>Returns metadata about the images in a repository, including image size, image tags, and creation date.</p> <note> <p>Beginning with Docker version 1.9, the Docker client compresses image layers before pushing them to a V2 Docker registry. The output of the <code>docker images</code> command shows the uncompressed image size, so it may return a larger image size than the image sizes returned by <a>DescribeImages</a>.</p> </note>",
+            "title": "DescribeImages",
+            "description": "Returns metadata about the images in a repository, including image size, image\ntags, and creation date.\n\nBeginning with Docker version 1.9, the Docker client compresses image layers\nbefore pushing them to a V2 Docker registry. The output of the docker images \ncommand shows the uncompressed image size, so it may return a larger image size\nthan the image sizes returned by DescribeImages.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -191,7 +191,7 @@
         },
         "DescribeRepositories": {
             "main": "./lib/actions/DescribeRepositories.js",
-            "title": "Describes image repositories in a registry.",
+            "title": "DescribeRepositories",
             "description": "Describes image repositories in a registry.",
             "fields": {
                 "verbose": {
@@ -208,8 +208,8 @@
         },
         "GetAuthorizationToken": {
             "main": "./lib/actions/GetAuthorizationToken.js",
-            "title": "<p>Retrieves a token that is valid for a specified registry for 12 hours. This command allows you to use the <code>docker</code> CLI to push and pull images with Amazon ECR. If you do not specify a registry, the default registry is assumed.</p> <p>The <code>authorizationToken</code> returned for each registry specified is a base64 encoded string that can be decoded and used in a <code>docker login</code> command to authenticate to a registry. The AWS CLI offers an <code>aws ecr get-login</code> command that simplifies the login process.</p>",
-            "description": "<p>Retrieves a token that is valid for a specified registry for 12 hours. This command allows you to use the <code>docker</code> CLI to push and pull images with Amazon ECR. If you do not specify a registry, the default registry is assumed.</p> <p>The <code>authorizationToken</code> returned for each registry specified is a base64 encoded string that can be decoded and used in a <code>docker login</code> command to authenticate to a registry. The AWS CLI offers an <code>aws ecr get-login</code> command that simplifies the login process.</p>",
+            "title": "GetAuthorizationToken",
+            "description": "Retrieves a token that is valid for a specified registry for 12 hours. This\ncommand allows you to use the docker CLI to push and pull images with Amazon\nECR. If you do not specify a registry, the default registry is assumed.\n\nThe authorizationToken returned for each registry specified is a base64 encoded\nstring that can be decoded and used in a docker login command to authenticate to\na registry. The AWS CLI offers an aws ecr get-login command that simplifies the\nlogin process.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -225,8 +225,8 @@
         },
         "GetDownloadUrlForLayer": {
             "main": "./lib/actions/GetDownloadUrlForLayer.js",
-            "title": "<p>Retrieves the pre-signed Amazon S3 download URL corresponding to an image layer. You can only get URLs for image layers that are referenced in an image.</p> <note> <p>This operation is used by the Amazon ECR proxy, and it is not intended for general use by customers for pulling and pushing images. In most cases, you should use the <code>docker</code> CLI to pull, tag, and push images.</p> </note>",
-            "description": "<p>Retrieves the pre-signed Amazon S3 download URL corresponding to an image layer. You can only get URLs for image layers that are referenced in an image.</p> <note> <p>This operation is used by the Amazon ECR proxy, and it is not intended for general use by customers for pulling and pushing images. In most cases, you should use the <code>docker</code> CLI to pull, tag, and push images.</p> </note>",
+            "title": "GetDownloadUrlForLayer",
+            "description": "Retrieves the pre-signed Amazon S3 download URL corresponding to an image layer.\nYou can only get URLs for image layers that are referenced in an image.\n\nThis operation is used by the Amazon ECR proxy, and it is not intended for\ngeneral use by customers for pulling and pushing images. In most cases, you\nshould use the docker CLI to pull, tag, and push images.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -242,7 +242,7 @@
         },
         "GetLifecyclePolicy": {
             "main": "./lib/actions/GetLifecyclePolicy.js",
-            "title": "Retrieves the specified lifecycle policy.",
+            "title": "GetLifecyclePolicy",
             "description": "Retrieves the specified lifecycle policy.",
             "fields": {
                 "verbose": {
@@ -259,7 +259,7 @@
         },
         "GetLifecyclePolicyPreview": {
             "main": "./lib/actions/GetLifecyclePolicyPreview.js",
-            "title": "Retrieves the results of the specified lifecycle policy preview request.",
+            "title": "GetLifecyclePolicyPreview",
             "description": "Retrieves the results of the specified lifecycle policy preview request.",
             "fields": {
                 "verbose": {
@@ -276,7 +276,7 @@
         },
         "GetRepositoryPolicy": {
             "main": "./lib/actions/GetRepositoryPolicy.js",
-            "title": "Retrieves the repository policy for a specified repository.",
+            "title": "GetRepositoryPolicy",
             "description": "Retrieves the repository policy for a specified repository.",
             "fields": {
                 "verbose": {
@@ -293,8 +293,8 @@
         },
         "InitiateLayerUpload": {
             "main": "./lib/actions/InitiateLayerUpload.js",
-            "title": "<p>Notify Amazon ECR that you intend to upload an image layer.</p> <note> <p>This operation is used by the Amazon ECR proxy, and it is not intended for general use by customers for pulling and pushing images. In most cases, you should use the <code>docker</code> CLI to pull, tag, and push images.</p> </note>",
-            "description": "<p>Notify Amazon ECR that you intend to upload an image layer.</p> <note> <p>This operation is used by the Amazon ECR proxy, and it is not intended for general use by customers for pulling and pushing images. In most cases, you should use the <code>docker</code> CLI to pull, tag, and push images.</p> </note>",
+            "title": "InitiateLayerUpload",
+            "description": "Notify Amazon ECR that you intend to upload an image layer.\n\nThis operation is used by the Amazon ECR proxy, and it is not intended for\ngeneral use by customers for pulling and pushing images. In most cases, you\nshould use the docker CLI to pull, tag, and push images.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -310,8 +310,8 @@
         },
         "ListImages": {
             "main": "./lib/actions/ListImages.js",
-            "title": "<p>Lists all the image IDs for a given repository.</p> <p>You can filter images based on whether or not they are tagged by setting the <code>tagStatus</code> parameter to <code>TAGGED</code> or <code>UNTAGGED</code>. For example, you can filter your results to return only <code>UNTAGGED</code> images and then pipe that result to a <a>BatchDeleteImage</a> operation to delete them. Or, you can filter your results to return only <code>TAGGED</code> images to list all of the tags in your repository.</p>",
-            "description": "<p>Lists all the image IDs for a given repository.</p> <p>You can filter images based on whether or not they are tagged by setting the <code>tagStatus</code> parameter to <code>TAGGED</code> or <code>UNTAGGED</code>. For example, you can filter your results to return only <code>UNTAGGED</code> images and then pipe that result to a <a>BatchDeleteImage</a> operation to delete them. Or, you can filter your results to return only <code>TAGGED</code> images to list all of the tags in your repository.</p>",
+            "title": "ListImages",
+            "description": "Lists all the image IDs for a given repository.\n\nYou can filter images based on whether or not they are tagged by setting the \ntagStatus parameter to TAGGED or UNTAGGED. For example, you can filter your\nresults to return only UNTAGGED images and then pipe that result to a \nBatchDeleteImage operation to delete them. Or, you can filter your results to\nreturn only TAGGED images to list all of the tags in your repository.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -327,7 +327,7 @@
         },
         "ListTagsForResource": {
             "main": "./lib/actions/ListTagsForResource.js",
-            "title": "List the tags for an Amazon ECR resource.",
+            "title": "ListTagsForResource",
             "description": "List the tags for an Amazon ECR resource.",
             "fields": {
                 "verbose": {
@@ -344,8 +344,8 @@
         },
         "PutImage": {
             "main": "./lib/actions/PutImage.js",
-            "title": "<p>Creates or updates the image manifest and tags associated with an image.</p> <note> <p>This operation is used by the Amazon ECR proxy, and it is not intended for general use by customers for pulling and pushing images. In most cases, you should use the <code>docker</code> CLI to pull, tag, and push images.</p> </note>",
-            "description": "<p>Creates or updates the image manifest and tags associated with an image.</p> <note> <p>This operation is used by the Amazon ECR proxy, and it is not intended for general use by customers for pulling and pushing images. In most cases, you should use the <code>docker</code> CLI to pull, tag, and push images.</p> </note>",
+            "title": "PutImage",
+            "description": "Creates or updates the image manifest and tags associated with an image.\n\nThis operation is used by the Amazon ECR proxy, and it is not intended for\ngeneral use by customers for pulling and pushing images. In most cases, you\nshould use the docker CLI to pull, tag, and push images.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -361,7 +361,7 @@
         },
         "PutLifecyclePolicy": {
             "main": "./lib/actions/PutLifecyclePolicy.js",
-            "title": "Creates or updates a lifecycle policy. For information about lifecycle policy syntax, see <a href=\"http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html\">Lifecycle Policy Template</a>.",
+            "title": "PutLifecyclePolicy",
             "description": "Creates or updates a lifecycle policy. For information about lifecycle policy syntax, see <a href=\"http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html\">Lifecycle Policy Template</a>.",
             "fields": {
                 "verbose": {
@@ -378,7 +378,7 @@
         },
         "SetRepositoryPolicy": {
             "main": "./lib/actions/SetRepositoryPolicy.js",
-            "title": "Applies a repository policy on a specified repository to control access permissions.",
+            "title": "SetRepositoryPolicy",
             "description": "Applies a repository policy on a specified repository to control access permissions.",
             "fields": {
                 "verbose": {
@@ -395,7 +395,7 @@
         },
         "StartLifecyclePolicyPreview": {
             "main": "./lib/actions/StartLifecyclePolicyPreview.js",
-            "title": "Starts a preview of the specified lifecycle policy. This allows you to see the results before creating the lifecycle policy.",
+            "title": "StartLifecyclePolicyPreview",
             "description": "Starts a preview of the specified lifecycle policy. This allows you to see the results before creating the lifecycle policy.",
             "fields": {
                 "verbose": {
@@ -412,7 +412,7 @@
         },
         "TagResource": {
             "main": "./lib/actions/TagResource.js",
-            "title": "Adds specified tags to a resource with the specified ARN. Existing tags on a resource are not changed if they are not specified in the request parameters.",
+            "title": "TagResource",
             "description": "Adds specified tags to a resource with the specified ARN. Existing tags on a resource are not changed if they are not specified in the request parameters.",
             "fields": {
                 "verbose": {
@@ -429,7 +429,7 @@
         },
         "UntagResource": {
             "main": "./lib/actions/UntagResource.js",
-            "title": "Deletes specified tags from a resource.",
+            "title": "UntagResource",
             "description": "Deletes specified tags from a resource.",
             "fields": {
                 "verbose": {
@@ -446,8 +446,8 @@
         },
         "UploadLayerPart": {
             "main": "./lib/actions/UploadLayerPart.js",
-            "title": "<p>Uploads an image layer part to Amazon ECR.</p> <note> <p>This operation is used by the Amazon ECR proxy, and it is not intended for general use by customers for pulling and pushing images. In most cases, you should use the <code>docker</code> CLI to pull, tag, and push images.</p> </note>",
-            "description": "<p>Uploads an image layer part to Amazon ECR.</p> <note> <p>This operation is used by the Amazon ECR proxy, and it is not intended for general use by customers for pulling and pushing images. In most cases, you should use the <code>docker</code> CLI to pull, tag, and push images.</p> </note>",
+            "title": "UploadLayerPart",
+            "description": "Uploads an image layer part to Amazon ECR.\n\nThis operation is used by the Amazon ECR proxy, and it is not intended for\ngeneral use by customers for pulling and pushing images. In most cases, you\nshould use the docker CLI to pull, tag, and push images.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
